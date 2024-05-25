@@ -10,8 +10,11 @@ class Program
         while (i < 15)
         {
             int inteiro = numeroAleatorio.Next(1, 26);
-            aposta[i] = inteiro;
-            i++;
+            if (Array.IndexOf(aposta, inteiro) == -1)
+            {
+                aposta[i] = inteiro;
+                i++;
+            }
         }
 
         foreach (int num in aposta)
