@@ -1,25 +1,31 @@
 ﻿
+using GeradorDeApostas.Model;
+
 class Program
 {
     static void Main()
     {
-        Random numeroAleatorio = new Random();
-        int[] aposta = new int[15];
-        int i = 0;
-
-        while (i < 15)
+        void ExibirMenu()
         {
-            int inteiro = numeroAleatorio.Next(1, 26);
-            if (Array.IndexOf(aposta, inteiro) == -1)
+            Console.WriteLine("Seja bem vindo ao gerador de apostas!\n");
+            Console.WriteLine("Selecione em qual jogo irá apostar:\n");
+            Console.WriteLine("1. Lotofácil.");
+            Console.WriteLine("2. Outro jogo");
+            Console.WriteLine("\n\nDigite o número do jogo escolhido: ");
+            string JogoEscolhido = Console.ReadLine()!;
+            int JogoEscolhidoInt = int.Parse(JogoEscolhido);
+
+            switch (JogoEscolhidoInt)
             {
-                aposta[i] = inteiro;
-                i++;
+                case 0: 
+                    Console.WriteLine("Opção inválida.");
+                    break;
+                case 1: 
+                    Console.WriteLine("escolheu 1");
+                    break;
             }
         }
+        ExibirMenu();
 
-        foreach (int num in aposta)
-        {
-            Console.WriteLine(num);
-        }
     }
 }
